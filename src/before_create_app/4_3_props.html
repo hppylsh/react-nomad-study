@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    /* Prop Types */
+    /* default값을 설정해줄 수 있음 */
+    function Btn({ text, fontSize = 14}) {
+      return <button style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px;", border: 0, borderRadius: 10,fontSize }}>{text}</button>;
+    }
+    
+    Btn.propTypes = {
+      text : PropTypes.string.isRequired,
+      fontSize : PropTypes.number,
+    }
+
+    /* 
+    -- propTypes가 틀렸을 때
+    react.development.js:245 Warning: Failed prop type: Invalid prop `text` of type `number` supplied to `Btn`, expected `string`.
+    at Btn (<anonymous>:5:19)
+      Warning: Failed prop type: Invalid prop `fontSize` of type `string` supplied to `Btn`, expected `number`.
+    at Btn (<anonymous>:5:19) 
+      
+    -- isRequired 속성을 빼먹었을때
+    Warning: Failed prop type: The prop `fontSize` is marked as required in `Btn`, but its value is `undefined`.
+        at Btn (<anonymous>:5:19)
+      */
+
+    function App() {
+      return (
+        <div>
+          <Btn text="Save Change" fontSize={16}/>
+          <Btn text={"test"}/>
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script> 
+</html>
+
