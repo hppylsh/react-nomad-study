@@ -13,15 +13,18 @@ function App() {
   }, []);
   return (
     <div>
-      <h1>The coins!({loading ? "" : coins.length})</h1>
-      {loading ? <strong>Loading...</strong> : null}
-      <ul>
-        {coins.map((coins) => (
-          <li>
-            {coins.name}({coins.symbol}) : {coins.quotes.USD.price} USD
-          </li>
-        ))}
-      </ul>
+      <h1>The coins!{loading ? "" : `(` + coins.length + `)`}</h1>
+      {loading ? (
+        <strong>Loading...</strong>
+      ) : (
+        <ul>
+          {coins.map((coins) => (
+            <li>
+              {coins.name}({coins.symbol}) : {coins.quotes.USD.price} USD
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
