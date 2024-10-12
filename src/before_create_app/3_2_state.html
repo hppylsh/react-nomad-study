@@ -10,9 +10,12 @@
     const root = document.getElementById("root");
     function App() {
       const [counter, setCounter] = React.useState(0);
+      // ### setState
+
       // const data = React.useState();
       // const counter = data[0];
-      // const setCounter = data[1];
+      // const modifier = data[1];
+      // modifier 함수를 사용하면 reRender된다
       const onClick = () => {
         //reactJs의 기능... setCounter를 쓰면 값을 바꿔줌과 동시에 리렌더링까지 진행됨
         //방법1

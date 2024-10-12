@@ -7,10 +7,17 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script>
     const root = document.getElementById("root");
+    //react - react library
+    //react-dom - react element를 html body에 둘 수 있도록 함
+    // React.createElement 첫번째 argument - html 태그
+    // React.createElement 두번째 argument - props (안에 event listener등록가능)
+    // React.createElement 세번째 argument - conetent
+
     //const span = React.createElement("span", { id: "sexy-span", style: { color: "red" } }, "Hello I'm a span");
     const h3 = React.createElement("h3", { id: "title", onMouseEnter: () => console.log("mouse enter") }, "Hello I'm a span");
     const btn = React.createElement("button", { onClick: () => console.log("im clicked") }, "Click me");
     const container = React.createElement("div", null, [h3, btn]);
-    ReactDOM.render(container, root);
+    
+    ReactDOM.render(container, root); //Show
   </script>
 </html>

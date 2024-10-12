@@ -7,6 +7,7 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
+    // inputs and state
     /*
       1) label의 for 속성은 react에서는 htmlFor로 표시한다.
       2) class는 className으로 표시한다.
@@ -15,7 +16,7 @@
     function MinutesToHours() {
       //default값 입력해주기
       const [amount, setAmount] = React.useState(0);
-      const [inverted, setInverted] = React.useState(false);
+      const [flipped, setFlipped] = React.useState(false);
 
       const onChange = (event) => {
         setAmount(event.target.value);
@@ -30,14 +31,14 @@
         <div>
           <div>
             <label htmlFor="minutes">Minutes</label>
-            <input value={inverted ? amount * 60 : amount} id="minutes" placehoder="Minutes" type="number" onChange={onChange} disabled={inverted} />
+            <input value={flipped ? amount * 60 : amount} id="minutes" placehoder="Minutes" type="number" onChange={onChange} disabled={flipped} />
           </div>
           <div>
             <label htmlFor="hours">Hours</label>
-            <input value={inverted ? amount : Math.round(amount / 60)} id="hours" placehoder="Hours" type="number" onChange={onChange} disabled={!inverted} />
+            <input value={flipped ? amount : Math.round(amount / 60)} id="hours" placehoder="Hours" type="number" onChange={onChange} disabled={!flipped} />
           </div>
           <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button>
+          <button onClick={onFlip}>{flipped ? "Turn back" : "Invert"}</button>
         </div>
       );
     }
