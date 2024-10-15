@@ -20,11 +20,12 @@ function App() {
     console.log("CALL THE API...");
   }, []);
 
+   /* keyword가 변화할 때, 관련 구문이 실행됨 */
   useEffect(() => {
     if (keyword !== "" && keyword.length > 5) console.log("SEARCH FOR", keyword);
   }, [keyword]);
-  /* keyword가 변화할 때, 관련 구문이 실행됨 */
-
+ 
+  //counter버튼이 변화할때 관련 구문이 실행됨
   useEffect(() => {
     console.log("I run when 'counter' changes");
   }, [counter]);
